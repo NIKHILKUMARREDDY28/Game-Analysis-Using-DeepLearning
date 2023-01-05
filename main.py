@@ -13,10 +13,10 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/",response_class=HTMLResponse)
 def homepage(request : Request):
-    return templates.TemplateResponse("home.html",{"request":request})
+    return templates.TemplateResponse("index.html",{"request":request})
 
 
-@app.get("/RP",response_class=HTMLResponse)
+@app.route("/pred")
 def homepage(request : Request):
     return templates.TemplateResponse("RP.html",{"request":request})
 
