@@ -1,4 +1,8 @@
-.heading{
-    align-items: center;
-    justify-content: center;
+
+*{
+background: url("/static/img/stu-fac.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
