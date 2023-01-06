@@ -6,20 +6,29 @@
     <link rel="stylesheet" href="/static/go.css">
 </head>
 <body>
-    <h1>Graduation Outcomes (GO)</h1>
-        <form action="/OI" method="get" >
-            <label for ="SS">Combined metric for Placement and Higher Studies (GPH): 40 marks</label>
-            <input type="number" name="SS" id="">
-            <br>
-            <label for ="FSR">Metric for University Examinations (GUE): 15 marks</label>
-            <input type="number" name="FSR" id="">
-            <br>
-            <label for ="FRU">Median Salary (GMS): 25 marks </label>
-            <input type="number" name="FRU" id="">
-            <label for ="FSR">Metric for Number of Ph.D. Students Graduated (GPHD): 20 marks</label>
-            <input type="number" name="FSR" id="">
-            <br>
-            <input type="submit" value="PROCEED FOR OI">
-        </form>
+    <div class="go">
+        <div class="heading">
+            <h1>Graduation Outcomes (GO)</h1>
+        </div>
+        <div class="goform">
+            <form action="/OI" method="get" >
+                <label for ="SS">Combined metric for Placement and Higher Studies (GPH): 40 marks</label>
+                <input type="number" name="SS" id="">
+                <br>
+                <label for ="FSR">Metric for University Examinations (GUE): 15 marks</label>
+                <input type="number" name="FSR" id="">
+                <br>
+                <label for ="FRU">Median Salary (GMS): 25 marks </label>
+                <input type="number" name="FRU" id="">
+                <br>
+                <label for ="FSR">Metric for Number of Ph.D. Students Graduated (GPHD): 20 marks</label>
+                <input type="number" name="FSR" id="">
+                <br>
+                <input type="submit" value="PROCEED FOR OI">
+            </form>
+        </div>
+    </div>
+    
+        
 </body>
 </html>

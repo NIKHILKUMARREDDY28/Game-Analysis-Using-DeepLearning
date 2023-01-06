@@ -1,8 +1,18 @@
-
 *{
 background: url("/static/img/stu-fac.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+.heading{
+    text-align: center;
+    flex: 0.5;
+}
+.TLRData{
+  display: flex;
+  flex-direction: column;
+}
+.tlr_form{
+  flex: 0.5;
 }

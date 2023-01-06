@@ -6,3 +6,10 @@
   -o-background-size: cover;
   background-size: cover;
 }
+.pr{
+  display: flex;
+  flex-direction: column;
+}
+.heading{
+    text-align: center;
+}

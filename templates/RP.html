@@ -1,24 +1,36 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/rp.css">
 </head>
+
 <body>
-    <h1>Research and Professional Practice (RP)</h1>
-        <form action="/GO" method="get" >
-            <label for ="SS">Combined metric for Publications (PU): 35 marks</label>
-            <input type="number" name="SS" id="">
-            <br>
-            <label for ="FSR">Combined metric for Quality of Publications (QP): 40 marks</label>
-            <input type="number" name="FSR" id="">
-            <br>
-            <label for ="FRU">IPR and Patents: Published and Granted (IPR): 15 marks</label>
-            <input type="number" name="FRU" id="">
-            <label for ="FRU">Footprint of Projects and Professional Practice (FPPP): 10 marks      </label>
-            <input type="number" name="FRU" id="">
-            <input type="submit" value="PROCEED TO GO">
-        </form>
+    <div class="rp">
+        <div class="heading">
+            <h1>Research and Professional Practice (RP)</h1>
+        </div>
+        <div class="rpform">
+            <form action="/GO" method="get">
+                <label for="SS">Combined metric for Publications (PU): 35 marks</label>
+                <input type="number" name="SS" id="">
+                <br>
+                <label for="FSR">Combined metric for Quality of Publications (QP): 40 marks</label>
+                <input type="number" name="FSR" id="">
+                <br>
+                <label for="FRU">IPR and Patents: Published and Granted (IPR): 15 marks</label>
+                <input type="number" name="FRU" id="">
+                <br>
+                <label for="FRU">Footprint of Projects and Professional Practice (FPPP): 10 marks <label>
+                <input type="number" name="FRU" id="">
+                <br>
+                <input type="submit" value="PROCEED TO GO">
+            </form>
+        </div>
+    </div>
+
 </body>
+
 </html>
