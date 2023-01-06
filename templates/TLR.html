@@ -3,29 +3,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   
+    <link rel="stylesheet" href="/static/tlr.css">
 </head>
 
 <body>
-    <div >
-        <h1>Teaching, Learning & Resources (TLR)</h1>
-        <form action="/RP" method="get" >
-            <label for ="SS">Student Strength including Doctoral Students(SS): 20 marks</label>
-            <input type="number" name="SS" id="">
-            <br>
-            <label for ="FSR">Faculty-student ratio with emphasis on permanent faculty (FSR): 30marks</label>
-            <input type="number" name="FSR" id="">
-            <br>
-            <label for ="SS">Combined metric for Faculty with PhD (or equivalent) and Experience (FQE): 20 marks</label>
-            <input type="number" name="SS" id="">
-            <br>
-            <label for ="FRU">Financial Resources and their Utilisation (FRU): 30 marks</label>
-            <input type="number" name="FRU" id="">
-
-            <input type="submit" value="PROCEED FOR RP">
-
-        </form>
+    <div class="TLRData">
+        <div class="heading">
+            <h1>Teaching, Learning & Resources (TLR)</h1>
+        </div>
+        <div class="tlr_form">
+            <form action="/RP" method="get" >
+                <label for ="SS">Student Strength including Doctoral Students(SS): 20 marks</label>
+                <input type="number" name="SS" id="">
+                <br>
+                <label for ="FSR">Faculty-student ratio with emphasis on permanent faculty (FSR): 30marks</label>
+                <input type="number" name="FSR" id="">
+                <br>
+                <label for ="SS">Combined metric for Faculty with PhD (or equivalent) and Experience (FQE): 20 marks</label>
+                <input type="number" name="SS" id="">
+                <br>
+                <label for ="FRU">Financial Resources and their Utilisation (FRU): 30 marks</label>
+                <input type="number" name="FRU" id="">
+                <input type="submit" value="PROCEED FOR RP">
+            </form>
+        </div>
+        
     </div>
 </body>
 </html>
