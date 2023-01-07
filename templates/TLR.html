@@ -11,23 +11,22 @@
             <h1>Teaching, Learning & Resources (TLR)</h1
         </div>
         <div class="tlr_form">
-            <form action="/RP" method="get" >
+            <form action="/RP" method="post" >
                 <label for ="SS">Student Strength including Doctoral Students(SS): 20 marks</label>
-                <input type="number" name="SS" id="">
+                <input type="number" name="SS" step="any" id="" value="0" min="0" max="20">
                 <br>
                 <label for ="FSR">Faculty-student ratio with emphasis on permanent faculty (FSR): 30marks</label>
-                <input type="number" name="FSR" id="">
+                <input type="number" name="FSR" step="any" id="" value="0" min="0" max="30">
                 <br>
-                <label for ="SS">Combined metric for Faculty with PhD (or equivalent) and Experience (FQE): 20 marks</label>
-                <input type="number" name="SS" id="">
+                <label for ="FQE">Combined metric for Faculty with PhD (or equivalent) and Experience (FQE): 20 marks</label>
+                <input type="number" name="FQE" step="any" id="" value="0" min="0" max="20">
                 <br>
                 <label for ="FRU">Financial Resources and their Utilisation (FRU): 30 marks</label>
-                <input type="number" name="FRU" id="">
+                <input type="number" name="FRU" step="any" id="" value="0" min="0" max="30">
                 <br>    
                 <input type="submit" value="PROCEED FOR RP">
             </form>
-        </div>
-        
+        </div>   
     </div>
 </body>
 </html>

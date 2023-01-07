@@ -11,18 +11,18 @@
             <h1>Graduation Outcomes (GO)</h1>
         </div>
         <div class="goform">
-            <form action="/OI" method="get" >
-                <label for ="SS">Combined metric for Placement and Higher Studies (GPH): 40 marks</label>
-                <input type="number" name="SS" id="">
+            <form action="/OI" method="post" >
+                <label for ="GPH">Combined metric for Placement and Higher Studies (GPH): 40 marks</label>
+                <input type="number" name="GPH" step="any" id="" value="0" min="0" max="40">
                 <br>
-                <label for ="FSR">Metric for University Examinations (GUE): 15 marks</label>
-                <input type="number" name="FSR" id="">
+                <label for ="GUE">Metric for University Examinations (GUE): 15 marks</label>
+                <input type="number" name="GUE" step="any" id="" value="0" min="0" max="15">
                 <br>
-                <label for ="FRU">Median Salary (GMS): 25 marks </label>
-                <input type="number" name="FRU" id="">
+                <label for ="GMS">Median Salary (GMS): 25 marks </label>
+                <input type="number" name="GMS" step="any" id="" value="0" min="0" max="25">
                 <br>
-                <label for ="FSR">Metric for Number of Ph.D. Students Graduated (GPHD): 20 marks</label>
-                <input type="number" name="FSR" id="">
+                <label for ="GPHD">Metric for Number of Ph.D. Students Graduated (GPHD): 20 marks</label>
+                <input type="number" name="GPHD" step="any" id="" value="0" min="0" max="20">
                 <br>
                 <input type="submit" value="PROCEED FOR OI">
             </form>
