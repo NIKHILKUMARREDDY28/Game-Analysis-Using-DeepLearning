@@ -6,20 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analyze</title>
-    <script src="/static/js/g"></script>
+    
 </head>
 
 <body>
     <div class="analyze">
         <div class="leftSide">
-            <h1>Choose Your College</h1>
-            <select>
-
+            
+            <select id="select">
+                <option value="default">Choose Your College</option>
             </select>
-            <script src="script.js"></script>
-            <h4>{{colleges}}</h4>
-
         </div>
+        <script>
+            var select = document.getElementById("select");
+            var arri = {{colleges | safe}};
+            var arr = [];
+            for (var i in arri) arr.push(arri[i]);
+            for(var i = 0;i<arr.length;i++){
+                var option = document.createElement("option");
+                var txt = document.createTextNode(arr[i]);
+                option.appendChild(txt);
+                option.setAttribute("value",arr[i]);
+                select.insertBefore(option,select.lastChild);
+            }
+        </script>
         <div class="rightSide">
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
