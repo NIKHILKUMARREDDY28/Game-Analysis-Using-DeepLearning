@@ -6,59 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analyze</title>
+    <script src="/static/jquery-3.5.0.min.js"></script>
     
 </head>
-
 <body>
     <div class="analyze">
         <div class="leftSide">
-            
-            <select id="select">
-                <option value="default">Choose Your College</option>
+            <select id="col_selector">
+                <script>
+                    var obj = {{colleges | safe}};
+                    var arr = [];
+                    for( var i in obj) arr.push(obj[i]);
+                    arr.forEach(op=>col_selector.innerHTML += `<option value="${op}">${op}</option>`);
+                    
+                </script>
             </select>
-        </div>
-        <script>
-            var select = document.getElementById("select");
-            var arri = {{colleges | safe}};
-            var arr = [];
-            for (var i in arri) arr.push(arri[i]);
-            for(var i = 0;i<arr.length;i++){
-                var option = document.createElement("option");
-                var txt = document.createTextNode(arr[i]);
-                option.appendChild(txt);
-                option.setAttribute("value",arr[i]);
-                select.insertBefore(option,select.lastChild);
-            }
-        </script>
-        <div class="rightSide">
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-            <script type="text/javascript">
-                // Load google charts
-                google.charts.load('current', { 'packages': ['corechart'] });
-                google.charts.setOnLoadCallback(drawChart);
-
-                // Draw the chart and set the chart values
-                function drawChart() {
-                    var data = google.visualization.arrayToDataTable([
-                        ['Task', 'Hours per Day'],
-                        ['Work', 8],
-                        ['Eat', 2],
-                        ['TV', 4],
-                        ['Gym', 2],
-                        ['Sleep', 8]
-                    ]);
-
-                    // Optional; add a title and set the width and height of the chart
-                    var options = { 'title': 'My Average Day', 'width': 550, 'height': 400 };
-
-                    // Display the chart inside the <div> element with id="piechart"
-                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                    chart.draw(data, options);
+            
+            <button onclick="getCollege()">Get College</button>
+            <p><span class="output"></span></p>
+            <script>
+                function getCollege(){
+                    var opt = $("#col_selector option:selected").val();
+                    document.querySelector('.output').textContent = opt;
                 }
             </script>
-            <div id="piechart">
-
+            
+        </div>
+        <div class="rightSide">
+            <div class="top">
+                <div class="tlr">
+                    <h1>tlr</h1>
+                </div>
+                <div class="rpc">
+                    <h1>rpc</h1>
+                </div>
+                <div class="go">
+                    <h1>go</h1>
+                </div>
+                
+            </div>
+            <div class="down">
+                <div class="oi">
+                    <h1>OI</h1>
+                </div>
+                <div class="percept">
+                    <h1>Perception Scores</h1>
+                </div>
             </div>
         </div>
     </div>
