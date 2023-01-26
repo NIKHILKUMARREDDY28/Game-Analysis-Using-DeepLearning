@@ -2,7 +2,7 @@ from fastapi import FastAPI,Request,Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.encoders import jsonable_encoder
+#from fastapi.encoders import jsonable_encoder
 
 # database Connection
 from pymongo import MongoClient
@@ -57,3 +57,11 @@ def result(request : Request,PR : float = Form(...)):
     scores["PR"] =  PR
     scores["cum"] = 0.30 * scores["TLR"] + 0.20 * scores["GO"] + 0.10 * scores["PR"] + 0.30 *scores["RP"] + 0.10 * scores["OI"]
     return templates.TemplateResponse("result.html",{"request":request,"scores":scores})
+@app.post("/clg")
+async def result(request : Request, clg_name : str = Form(...)):
+    clg_data = coll.find_one({"Institute Name" : clg_name})
+    
+    del clg_data['_id']
+    return clg_data
+
+    

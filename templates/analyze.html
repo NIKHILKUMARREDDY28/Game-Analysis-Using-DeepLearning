@@ -1,61 +1,59 @@
 <html lang="en">
-
-<head>
-    <link rel="stylesheet" href="/static/analyze.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="/static/analyze.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Analyze</title>
     <script src="/static/jquery-3.5.0.min.js"></script>
-    
-</head>
-<body>
+  </head>
+  <body>
     <div class="analyze">
-        <div class="leftSide">
-            <select id="col_selector">
+      <div class="leftSide">
+        <form action="clg" method="post">
+            <select id="clg_name" name="clg_name">
                 <script>
-                    var obj = {{colleges | safe}};
-                    var arr = [];
-                    for( var i in obj) arr.push(obj[i]);
-                    arr.forEach(op=>col_selector.innerHTML += `<option value="${op}">${op}</option>`);
-                    
+                  var obj = {{colleges | safe}};
+                  var arr = [];
+                  for( var i in obj) arr.push(obj[i]);
+                  arr.forEach(op=>clg_name.innerHTML += `<option value="${op}">${op}</option>`);
                 </script>
             </select>
+            <input type="submit" value="Get Your  College Data">
+        </form>
+        
+        <p><span class="output"></span></p>
+        <script>
+          function getCollege() {
+            var opt = $("#clg_name option:selected").val();
             
-            <button onclick="getCollege()">Get College</button>
-            <p><span class="output"></span></p>
-            <script>
-                function getCollege(){
-                    var opt = $("#col_selector option:selected").val();
-                    document.querySelector('.output').textContent = opt;
-                }
-            </script>
-            
+              
+            document.querySelector(".output").textContent = addr;
+            return addr;
+          }
+        </script>
+      </div>
+      <div class="rightSide">
+        <div class="top">
+          <div class="tlr">
+            <h1>tlr</h1>
+          </div>
+          <div class="rpc">
+            <h1>rpc</h1>
+          </div>
+          <div class="go">
+            <h1>go</h1>
+          </div>
         </div>
-        <div class="rightSide">
-            <div class="top">
-                <div class="tlr">
-                    <h1>tlr</h1>
-                </div>
-                <div class="rpc">
-                    <h1>rpc</h1>
-                </div>
-                <div class="go">
-                    <h1>go</h1>
-                </div>
-                
-            </div>
-            <div class="down">
-                <div class="oi">
-                    <h1>OI</h1>
-                </div>
-                <div class="percept">
-                    <h1>Perception Scores</h1>
-                </div>
-            </div>
+        <div class="down">
+          <div class="oi">
+            <h1>OI</h1>
+          </div>
+          <div class="percept">
+            <h1>Perception Scores</h1>
+          </div>
         </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>
