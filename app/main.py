@@ -57,11 +57,36 @@ def result(request : Request,PR : float = Form(...)):
     scores["PR"] =  PR
     scores["cum"] = 0.30 * scores["TLR"] + 0.20 * scores["GO"] + 0.10 * scores["PR"] + 0.30 *scores["RP"] + 0.10 * scores["OI"]
     return templates.TemplateResponse("result.html",{"request":request,"scores":scores})
-@app.post("/clg")
+@app.post("/clg",response_class=HTMLResponse)
 async def result(request : Request, clg_name : str = Form(...)):
     clg_data = coll.find_one({"Institute Name" : clg_name})
-    
     del clg_data['_id']
-    return clg_data
+    clgid = clg_data['Institute Id']
+    clgname = clg_data['Institute Name']
+    clg_city = clg_data['City']
+    clg_state = clg_data['State']
+    
+    Perception = {}
+    OI = {}
+    GO = {}
+    RPC = {}
+    TLR = {}
+    for fie in clg_data.keys():
+        
+        if "Perception" in fie:
+            
+            Perception["20" + fie[-2:]] = clg_data[fie]
+        elif "OI" in fie:
+            OI["20" + fie[-2:]] = clg_data[fie]
+        elif "RPC" in fie:
+            RPC["20" + fie[-2:]] = clg_data[fie]
+        elif "TLR" in fie:
+            TLR["20" + fie[-2:]] = clg_data[fie]
+        elif "GO" in fie:
+            GO["20" + fie[-2:]] = clg_data[fie]
+    dates = list(TLR.keys())
+    dates.sort()
+
+    return templates.TemplateResponse("output.html",{"request":request,"clgname":clgname,"clgid":clgid,"clg_city":clg_city,"clg_state":clg_state,"Perception":Perception,"OI":OI,"RPC":RPC,"TLR":TLR,"GO":GO,"dates":dates})
 
     

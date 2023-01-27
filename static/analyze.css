@@ -1,26 +1,4 @@
-
-*{
-    margin: 0px;
-}
-.analyze{
-    display: flex;
-    
-    
-}
 .leftSide{
-    margin: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    flex: 0.3;
-    padding-left: 10px;
-    padding-right: 10px;
-    min-width: 230px;
-    height: 100vh;
-    color: black;
-    border: 2 px solid black;
-}
-.rightSide{
-    border: 2px solid black;
-    height: 100vh;
-    flex: 0.7;
+    align-items: center;
+    align-content: center;
 }

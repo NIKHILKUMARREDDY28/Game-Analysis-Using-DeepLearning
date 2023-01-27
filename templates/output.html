@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualize</title>
+    <script src="/static/js/lineg.js">
+        window.onload = function () {
+            
+            var percep = [];
+            const obj1 = {{Perception | safe}};
+            for (const yea in obj1) {
+                percep.push({x: new Date(parseInt(yea),03), y: parseInt(obj1[yea])});
+                
+            }
+
+            var rpc = [];
+            const obj2 = {{RPC | safe}};
+            for (const yea in obj2) {
+                rpc.push({x: new Date(parseInt(yea),03), y: parseInt(obj2[yea])});
+                
+            }
+            var go = [];
+            const obj3 = {{GO | safe}};
+            for (const yea in obj3) {
+                go.push({x: new Date(parseInt(yea),03), y: parseInt(obj3[yea])});
+                
+            }
+
+
+    
+            
+           
+            var chart = new CanvasJS.Chart("chartContainer", {
+            title:{
+                text: "Parameter Analysis for the {{clgname}}"
+            },
+            toolTip: {
+                shared: true
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toggleDataSeries
+            },
+            data: [{
+                type: "line",
+                name: "Perception Score",
+                color: "#369EAD",
+                showInLegend: true,
+                axisYIndex: 1,
+                dataPoints: percep
+            },
+            {
+                type: "line",
+                name: "RPC Score",
+                color: "#C24642",
+                axisYIndex: 0,
+                showInLegend: true,
+                dataPoints: rpc
+            },
+            
+            {
+                type: "line",
+                name: "GO Score",
+                color: "#7F6084",
+                axisYType: "secondary",
+                showInLegend: true,
+                dataPoints: go
+            }]
+        });
+        chart.render();
+        
+        function toggleDataSeries(e) {
+            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            } else {
+                e.dataSeries.visible = true;
+            }
+            e.chart.render();
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>Institute Id : {{clgid}}</h1>
+    <h1>Institute Name: {{clgname}}</h1>
+    <h1>State : {{clg_state}}</h1>
+    <h1>City : {{clg_city}}</h1>
+    
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="/static/js/canvasjs.min.js"></script>
+</body>
+</html>
