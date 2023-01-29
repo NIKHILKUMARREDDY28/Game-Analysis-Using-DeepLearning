@@ -4,28 +4,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualize</title>
-    <script src="/static/js/lineg.js">
+    <script >
         window.onload = function () {
             
             var percep = [];
             const obj1 = {{Perception | safe}};
             for (const yea in obj1) {
-                percep.push({x: new Date(parseInt(yea),03), y: parseInt(obj1[yea])});
+                percep.push({x: new Date(parseInt(yea),03), y: parseFloat(obj1[yea])});
                 
             }
 
             var rpc = [];
             const obj2 = {{RPC | safe}};
             for (const yea in obj2) {
-                rpc.push({x: new Date(parseInt(yea),03), y: parseInt(obj2[yea])});
+                rpc.push({x: new Date(parseInt(yea),03), y: parseFloat(obj2[yea])});
                 
             }
             var go = [];
             const obj3 = {{GO | safe}};
             for (const yea in obj3) {
-                go.push({x: new Date(parseInt(yea),03), y: parseInt(obj3[yea])});
+                go.push({x: new Date(parseInt(yea),03), y: parseFloat(obj3[yea])});
                 
             }
+            var tlr = [];
+            const obj4 = {{TLR | safe}};
+            for (const yea in obj4) {
+                tlr.push({x: new Date(parseInt(yea),03), y: parseFloat(obj4[yea])});
+                
+            }
+            var oi = [];
+            const obj5 = {{OI | safe}};
+            for (const yea in obj5) {
+                oi.push({x: new Date(parseInt(yea),03), y: parseFloat(obj5[yea])});
+                
+            }
+            //Perception":Perception,"OI":OI,
+            
 
 
     
@@ -47,26 +61,43 @@
                 name: "Perception Score",
                 color: "#369EAD",
                 showInLegend: true,
-                axisYIndex: 1,
+                axisYIndex: 0,
                 dataPoints: percep
             },
             {
                 type: "line",
-                name: "RPC Score",
+                name: "Research and Professional Practice",
                 color: "#C24642",
-                axisYIndex: 0,
+                axisYIndex: 1,
                 showInLegend: true,
                 dataPoints: rpc
             },
             
             {
                 type: "line",
-                name: "GO Score",
+                name: "Graduation Outcome",
                 color: "#7F6084",
-                axisYType: "secondary",
+                axisYIndex: 2,
                 showInLegend: true,
                 dataPoints: go
-            }]
+            },
+            {
+                type: "line",
+                name: "Outreach & Inclusivity",
+                color: "#720b98",
+                axisYIndex: 3,
+                showInLegend: true,
+                dataPoints: oi
+            },
+            {
+                type: "line",
+                name: "Teaching Learning & Resources",
+                color: "#536872",
+                axisYIndex: 4,
+                showInLegend: true,
+                dataPoints: tlr
+            }
+        ]
         });
         chart.render();
         
@@ -87,7 +118,7 @@
     <h1>State : {{clg_state}}</h1>
     <h1>City : {{clg_city}}</h1>
     
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <div id="chartContainer" style="height: 370px; width: 90%;"></div>
     <script src="/static/js/canvasjs.min.js"></script>
 </body>
 </html>
