@@ -72,9 +72,7 @@ async def result(request : Request, clg_name : str = Form(...)):
     RPC = {}
     TLR = {}
     for fie in clg_data.keys():
-        
-        if "Perception" in fie:
-            
+        if "Perception" in fie:  
             Perception["20" + fie[-2:]] = clg_data[fie]
         elif "OI" in fie:
             OI["20" + fie[-2:]] = clg_data[fie]
@@ -86,7 +84,7 @@ async def result(request : Request, clg_name : str = Form(...)):
             GO["20" + fie[-2:]] = clg_data[fie]
     dates = list(TLR.keys())
     dates.sort()
-
     return templates.TemplateResponse("output.html",{"request":request,"clgname":clgname,"clgid":clgid,"clg_city":clg_city,"clg_state":clg_state,"Perception":Perception,"OI":OI,"RPC":RPC,"TLR":TLR,"GO":GO,"dates":dates})
+
 
     
