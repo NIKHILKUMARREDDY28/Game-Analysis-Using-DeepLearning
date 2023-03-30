@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Analyze</title>
+    
     <script src="/static/jquery-3.5.0.min.js"></script>
   </head>
   <body>
@@ -19,15 +20,16 @@
                   arr.forEach(op=>clg_name.innerHTML += `<option value="${op}">${op}</option>`);
                 </script>
             </select>
-            <input type="submit" value="Get Your  College Data">
+            
+            <div>
+              <input type="submit" value="Get Your  College Data">
+            </div>
+            
         </form>
-        
         <p><span class="output"></span></p>
         <script>
           function getCollege() {
             var opt = $("#clg_name option:selected").val();
-            
-              
             document.querySelector(".output").textContent = addr;
             return addr;
           }

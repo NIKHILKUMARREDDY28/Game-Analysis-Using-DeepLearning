@@ -10,32 +10,39 @@
             var percep = [];
             const obj1 = {{Perception | safe}};
             for (const yea in obj1) {
-                percep.push({x: new Date(parseInt(yea),03), y: parseFloat(obj1[yea])});
+                percep.push({x: new Date(parseInt(yea),00), y: parseFloat(obj1[yea])});
                 
             }
 
             var rpc = [];
             const obj2 = {{RPC | safe}};
             for (const yea in obj2) {
-                rpc.push({x: new Date(parseInt(yea),03), y: parseFloat(obj2[yea])});
+                rpc.push({x: new Date(parseInt(yea),00), y: parseFloat(obj2[yea])});
                 
             }
             var go = [];
             const obj3 = {{GO | safe}};
             for (const yea in obj3) {
-                go.push({x: new Date(parseInt(yea),03), y: parseFloat(obj3[yea])});
+                go.push({x: new Date(parseInt(yea),00), y: parseFloat(obj3[yea])});
                 
             }
             var tlr = [];
             const obj4 = {{TLR | safe}};
             for (const yea in obj4) {
-                tlr.push({x: new Date(parseInt(yea),03), y: parseFloat(obj4[yea])});
+                tlr.push({x: new Date(parseInt(yea),00), y: parseFloat(obj4[yea])});
                 
             }
             var oi = [];
             const obj5 = {{OI | safe}};
             for (const yea in obj5) {
-                oi.push({x: new Date(parseInt(yea),03), y: parseFloat(obj5[yea])});
+                oi.push({x: new Date(parseInt(yea),00), y: parseFloat(obj5[yea])});
+                
+            }
+            
+            var tot = [];
+            const obj7 = {{total | safe}};
+            for (const yea in obj7) {
+                tot.push({x: new Date(parseInt(yea),00), y: parseFloat(obj7[yea])});
                 
             }
             //Perception":Perception,"OI":OI,
@@ -96,6 +103,14 @@
                 axisYIndex: 4,
                 showInLegend: true,
                 dataPoints: tlr
+            },
+            {
+                type: "line",
+                name: "Total Score",
+                color: "#536872",
+                axisYIndex: 5,
+                showInLegend: true,
+                dataPoints: tot
             }
         ]
         });

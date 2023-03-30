@@ -71,6 +71,7 @@ async def result(request : Request, clg_name : str = Form(...)):
     GO = {}
     RPC = {}
     TLR = {}
+    total = {}
     for fie in clg_data.keys():
         if "Perception" in fie:  
             Perception["20" + fie[-2:]] = clg_data[fie]
@@ -82,9 +83,11 @@ async def result(request : Request, clg_name : str = Form(...)):
             TLR["20" + fie[-2:]] = clg_data[fie]
         elif "GO" in fie:
             GO["20" + fie[-2:]] = clg_data[fie]
+        elif "Score" in fie:
+            total["20" + fie[-2:]] = clg_data[fie]
     dates = list(TLR.keys())
     dates.sort()
-    return templates.TemplateResponse("output.html",{"request":request,"clgname":clgname,"clgid":clgid,"clg_city":clg_city,"clg_state":clg_state,"Perception":Perception,"OI":OI,"RPC":RPC,"TLR":TLR,"GO":GO,"dates":dates})
+    return templates.TemplateResponse("output.html",{"request":request,"clgname":clgname,"clgid":clgid,"clg_city":clg_city,"clg_state":clg_state,"Perception":Perception,"OI":OI,"RPC":RPC,"TLR":TLR,"GO":GO,"dates":dates,"total":total})
 
 
     
